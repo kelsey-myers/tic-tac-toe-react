@@ -2,19 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-class Info extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-	render() {
-		return (
-			<div>
-				<h3> Tic-Tac-Toe Project </h3>
-			</div>	
-			);
-	}
-	
-}
 
 function Square(props) {
     return (
@@ -54,7 +41,6 @@ class Board extends React.Component {
           {this.renderSquare(7)}
           {this.renderSquare(8)}
         </div>
-		<Info />
       </div>
     );
   }
@@ -120,18 +106,27 @@ class Game extends React.Component {
     }
 	  
     return (
-      <div className="game">
+      <div className="center">
+	  	<h3> Tic-Tac-Toe Project </h3>
+			<p><b> This minigame has the following features: </b><br/>
+				Lets you play tic-tac-toe!<br/>
+				Indicates when a player has won the game.<br/>
+				Stores a game’s history as a game progresses.<br/>
+				Allows players to review a game’s history and see previous versions of a game’s board.<br/>
+				</p><br/>
+		<div className="game">
         <div className="game-board">
           <Board
             squares={current.squares}
             onClick={(i) => this.handleClick(i)}
           />
         </div>
-        <div className="game-info">
+        <div className="game-info features-list">
           <div>{status}</div>
           <ol>{moves}</ol>
         </div>
-      </div>
+		</div>
+	  </div>
     );
   }
 }
