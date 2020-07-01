@@ -93,7 +93,7 @@ class Game extends React.Component {
         'Go to game start';
       return (
          <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <button className="btn" onClick={() => this.jumpTo(move)}>{desc}</button>
         </li>
       );
     });
@@ -107,13 +107,13 @@ class Game extends React.Component {
 	  
     return (
       <div className="center">
-	  	<h3> Tic-Tac-Toe Project </h3>
-			<p><b> This minigame has the following features: </b><br/>
+	  	<h1> Tic-Tac-Toe Project (Desktop Only!)</h1>
+			<h3><b> This minigame has the following features: </b><br/>
 				Lets you play tic-tac-toe!<br/>
 				Indicates when a player has won the game.<br/>
 				Stores a game’s history as a game progresses.<br/>
 				Allows players to review a game’s history and see previous versions of a game’s board.<br/>
-				</p><br/>
+				</h3><br/>
 		<div className="game">
         <div className="game-board">
           <Board
@@ -122,7 +122,7 @@ class Game extends React.Component {
           />
         </div>
         <div className="game-info features-list">
-          <div>{status}</div>
+          <div className="nextPlayer">{status}</div>
           <ol>{moves}</ol>
         </div>
 		</div>
