@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faTimes} from '@fortawesome/free-solid-svg-icons';
+import {faCircle} from '@fortawesome/free-regular-svg-icons';
 
 function Square(props) {
     return (
@@ -84,8 +86,10 @@ class Game extends React.Component {
 	
   render() {
 	const history = this.state.history;
-     const current = history[this.state.stepNumber];
+    const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
+	const X = <p> Next player: <FontAwesomeIcon className="iconSpace" icon={faTimes} size='lg'/></p>;
+	const O = <p> Next player: <FontAwesomeIcon className="iconSpace" icon={faCircle} size='lg'/></p>;
 	
 	const moves = history.map((step, move) => {
       const desc = move ?
@@ -100,20 +104,24 @@ class Game extends React.Component {
 	
     let status;
     if (winner) {
-      status = 'Winner: ' + winner;
+		if (winner === 'X') {
+			status = <p className="pulse"> Winner: <FontAwesomeIcon className="iconSpace" icon={faTimes} size='lg'/> </p>;
+		} else if (winner === 'O') {
+			status = <p className="pulse"> Winner: <FontAwesomeIcon className="iconSpace" icon={faCircle} size='lg'/> </p>;
+		}
     } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = (this.state.xIsNext ? X : O);
     }
 	  
     return (
       <div className="center">
 	  	<h1> Tic-Tac-Toe Project (Desktop Only!)</h1>
 			<h3><b> This minigame has the following features: </b><br/>
-				Lets you play tic-tac-toe!<br/>
-				Indicates when a player has won the game.<br/>
-				Stores a game’s history as a game progresses.<br/>
-				Allows players to review a game’s history and see previous versions of a game’s board.<br/>
-				</h3><br/>
+				<ul className="ul"><li>Lets you play tic-tac-toe!</li>
+				<li>Indicates when a player has won the game.</li>
+				<li>Stores a game’s history as a game progresses.</li>
+				<li>Allows players to review a game’s history and see previous versions of a game’s board.</li>
+				</ul></h3><br/>
 		<div className="game">
         <div className="game-board">
           <Board
