@@ -64,7 +64,7 @@ class Game extends React.Component {
 		const history = this.state.history.slice(0, this.state.stepNumber + 1);
         const current = history[history.length - 1];
 		const squares = current.squares.slice();
-		if (calculateWinner(squares) || squares[i]) {
+		if (calculateWinner(squares) || squares[i] || !squares.includes(null)) {
 			return;
 		}
 		squares[i] = this.state.xIsNext ? 'X' : 'O';
@@ -109,6 +109,9 @@ class Game extends React.Component {
 		} else if (winner === 'O') {
 			status = <p className="pulse"> Winner: <FontAwesomeIcon className="iconSpace" icon={faCircle} size='lg'/> </p>;
 		}
+    } else if (!current.squares.includes(null)) {
+      // All squares are filled and no winner - it's a tie
+      status = <p className="pulse"> It's a tie! </p>;
     } else {
       status = (this.state.xIsNext ? X : O);
     }
