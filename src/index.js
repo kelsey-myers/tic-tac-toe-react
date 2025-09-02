@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faTimes} from '@fortawesome/free-solid-svg-icons';
 import {faCircle} from '@fortawesome/free-regular-svg-icons';
 
-function Square(props) {
+export function Square(props) {
     return (
       <button className="square" onClick={props.onClick}>
         {props.value}
@@ -13,7 +13,7 @@ function Square(props) {
     );
 }
 
-class Board extends React.Component {
+export class Board extends React.Component {
 	
  renderSquare(i) {
     return (
@@ -48,7 +48,7 @@ class Board extends React.Component {
   }
 }
 
-class Game extends React.Component {
+export class Game extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -139,7 +139,7 @@ class Game extends React.Component {
   }
 }
 
-function calculateWinner(squares) {
+export function calculateWinner(squares) {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -160,7 +160,10 @@ function calculateWinner(squares) {
 }
 // ========================================
 
-ReactDOM.render(
-  <Game />,
-  document.getElementById('root')
-);
+// Only render when not in test environment
+if (process.env.NODE_ENV !== 'test') {
+  ReactDOM.render(
+    <Game />,
+    document.getElementById('root')
+  );
+}
