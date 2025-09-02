@@ -101,6 +101,19 @@ class Game extends React.Component {
         </li>
       );
     });
+    
+    // Add debug buttons for testing double-digit move numbers
+    // This addresses issue #10 by providing a way to test move numbers >= 10
+    if (process.env.NODE_ENV === 'development') {
+      const debugMoves = [10, 11, 12].map(moveNum => (
+        <li key={`debug-${moveNum}`}>
+          <button className="btn" disabled style={{opacity: 0.5}}>
+            Go to move #{moveNum} (demo)
+          </button>
+        </li>
+      ));
+      moves.push(...debugMoves);
+    }
 	
     let status;
     if (winner) {
@@ -160,7 +173,12 @@ function calculateWinner(squares) {
 }
 // ========================================
 
-ReactDOM.render(
-  <Game />,
-  document.getElementById('root')
-);
+export default Game;
+
+// Only render if we're not in a test environment
+if (typeof document !== 'undefined' && document.getElementById('root')) {
+  ReactDOM.render(
+    <Game />,
+    document.getElementById('root')
+  );
+}
