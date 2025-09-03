@@ -1,21 +1,25 @@
-# Hello World - Tic-Tac-Toe React Game 🎮
+# Tic-Tac-Toe React Game 🎮
 
-Welcome to this interactive tic-tac-toe game built with React! This project demonstrates a classic game implementation with modern web technologies.
+A modern, interactive tic-tac-toe game built with React. This project showcases clean component architecture, state management, and engaging user interface design.
+
+## 📸 Game Preview
+
+![Tic-Tac-Toe Game](https://github.com/user-attachments/assets/db641531-6e03-4885-a241-fe4c10eab8b7)
 
 ## 🌟 Features
 
 This tic-tac-toe game includes the following features:
 - **Interactive Gameplay**: Click to place X's and O's on the game board
-- **Win Detection**: Automatically detects when a player has won the game
+- **Win Detection**: Automatically detects when a player has won the game  
 - **Game History**: Stores and displays the complete game history as you play
 - **Time Travel**: Review previous moves and jump back to any point in the game
-- **Visual Feedback**: Clean UI with FontAwesome icons and animations for winners
+- **Visual Feedback**: Clean UI with FontAwesome icons and smooth animations
 
-## 🚀 Live Demo
+## 🚀 Quick Start
 
-You can play the game right now at: [https://kelsey-myers.github.io/tic-tac-toe-react](https://kelsey-myers.github.io/tic-tac-toe-react)
+You can play the game immediately at: [https://kelsey-myers.github.io/tic-tac-toe-react](https://kelsey-myers.github.io/tic-tac-toe-react)
 
-## 🛠️ Getting Started
+## 💻 Local Development
 
 ### Prerequisites
 - Node.js (version 14 or higher recommended)
@@ -36,8 +40,9 @@ You can play the game right now at: [https://kelsey-myers.github.io/tic-tac-toe-
 
 3. Start the development server:
    ```bash
-   npm start
+   NODE_OPTIONS="--openssl-legacy-provider" npm start
    ```
+   *Note: The legacy provider flag may be needed for newer Node.js versions*
 
 4. Open your browser and visit `http://localhost:3000` to play the game!
 
@@ -51,12 +56,12 @@ You can play the game right now at: [https://kelsey-myers.github.io/tic-tac-toe-
 
 ## 🏗️ Built With
 
-- **React** - Frontend framework
-- **FontAwesome** - Icons for X's and O's
-- **CSS3** - Styling and animations
-- **Create React App** - Project setup and build tools
+- **React** - Frontend framework for building user interfaces
+- **FontAwesome** - Icon library for X's and O's 
+- **CSS3** - Modern styling with animations and responsive design
+- **Create React App** - Development environment and build tools
 
-## 📱 Note
+## 📱 Compatibility Note
 
 This game is optimized for desktop use. For the best experience, please play on a desktop or laptop computer.
 
@@ -71,4 +76,4 @@ npm run deploy
 
 ---
 
-**Hello World!** Welcome to the world of React tic-tac-toe! Have fun playing! 🎉
+**Enjoy playing tic-tac-toe!** 🎉
