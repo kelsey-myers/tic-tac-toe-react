@@ -6,9 +6,16 @@ import {faTimes} from '@fortawesome/free-solid-svg-icons';
 import {faCircle} from '@fortawesome/free-regular-svg-icons';
 
 function Square(props) {
+    let displayValue = null;
+    if (props.value === 'X') {
+        displayValue = <FontAwesomeIcon icon={faTimes} size='lg'/>;
+    } else if (props.value === 'O') {
+        displayValue = <FontAwesomeIcon icon={faCircle} size='lg'/>;
+    }
+    
     return (
       <button className="square" onClick={props.onClick}>
-        {props.value}
+        {displayValue}
       </button>
     );
 }
